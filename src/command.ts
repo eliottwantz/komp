@@ -6,10 +6,9 @@ import {
   outro,
   spinner,
 } from "@clack/prompts";
-import { sleep, type BunFile } from "bun";
-import { defineCommand, runMain } from "citty";
-import { consola } from "consola";
-import { box, colorize } from "consola/utils";
+import { sleep } from "bun";
+import { defineCommand } from "citty";
+import { colorize } from "consola/utils";
 import { addService, allServices, type Service } from "./services";
 
 const cliName = "komp";
@@ -22,7 +21,7 @@ export const main = defineCommand({
     description: "Add services to your Docker Compose file",
   },
   async run() {
-    intro(colorize("yellowBright", cliName));
+    intro(colorize("bgYellow", `  ${cliName}  `));
     const res = await multiselect({
       message: "Which service do you want to add?",
       options: allServices.map((s) => ({ value: s, name: s })),
@@ -35,10 +34,10 @@ export const main = defineCommand({
       process.exit(0);
     }
 
-    s.start("Applying...");
+    s.start("Adding services to your Docker Compose file...");
     await addService(res as Service[]);
     await sleep(1);
-    s.stop();
-    outro("Done");
+    s.stop("Services applied");
+    outro("Done 🐳");
   },
 });
