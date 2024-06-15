@@ -1,6 +1,7 @@
 import { writeComposeFile } from "./file";
 import {
   defaultMysqlServiceDefinition,
+  defaultPostgresServiceDefinition,
   type ComposeFileSchema,
 } from "./schema";
 
@@ -17,6 +18,8 @@ export const addService = async (services: Service[]) => {
   for (const service of services) {
     switch (service) {
       case "Postgres":
+        composeFileDefinition.services.postgres =
+          defaultPostgresServiceDefinition;
         composeFileDefinition.volumes["postgres_data"] = null;
         break;
       case "MySQL":
