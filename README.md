@@ -1,5 +1,4 @@
-# cli-dkcompose
-
+# komp
 To install dependencies:
 
 ```bash
