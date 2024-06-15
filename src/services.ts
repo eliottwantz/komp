@@ -1,12 +1,6 @@
-import {
-  getComposeFileInfo,
-  writeComposeFile,
-  type ComposeFileInfo,
-} from "./file";
-import { parse, stringify } from "yaml";
+import { writeComposeFile } from "./file";
 import {
   defaultMysqlServiceDefinition,
-  defaultPostgresServiceDefinition,
   type ComposeFileSchema,
 } from "./schema";
 
@@ -14,19 +8,22 @@ export const allServices = ["Postgres", "MySQL"] as const;
 
 export type Service = (typeof allServices)[number];
 
-// This function appends a service to your Docker Compose file
-export const addService = async (service: Service) => {
+export const addService = async (services: Service[]) => {
   const composeFileDefinition: ComposeFileSchema = {
     services: {},
+    volumes: {},
   };
-  switch (service) {
-    case "Postgres":
-      composeFileDefinition.services.postgres =
-        defaultPostgresServiceDefinition;
-      break;
-    case "MySQL":
-      composeFileDefinition.services.mysql = defaultMysqlServiceDefinition;
-      break;
+
+  for (const service of services) {
+    switch (service) {
+      case "Postgres":
+        composeFileDefinition.volumes["postgres_data"] = null;
+        break;
+      case "MySQL":
+        composeFileDefinition.services.mysql = defaultMysqlServiceDefinition;
+        composeFileDefinition.volumes["mysql_data"] = null;
+        break;
+    }
   }
 
   await writeComposeFile(composeFileDefinition);

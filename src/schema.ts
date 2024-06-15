@@ -18,6 +18,9 @@ export const postgresSchema = serviceSchema.extend({
     POSTGRES_PASSWORD: z.string().default("postgres"),
     POSTGRES_DB: z.string().default("postgres"),
   }),
+  volumes: z
+    .array(z.string())
+    .default(["postgres_data:/var/lib/postgresql/data"]),
 });
 export type PostgresSchema = z.infer<typeof postgresSchema>;
 export const defaultPostgresServiceDefinition: PostgresSchema = {
@@ -28,6 +31,7 @@ export const defaultPostgresServiceDefinition: PostgresSchema = {
     POSTGRES_PASSWORD: "postgres",
     POSTGRES_USER: "postgres",
   },
+  volumes: ["postgres_data:/var/lib/postgresql/data"],
 };
 
 export const mysqlSchema = serviceSchema.extend({
@@ -37,6 +41,7 @@ export const mysqlSchema = serviceSchema.extend({
     MYSQL_PASSWORD: z.string(),
     MYSQL_DB: z.string(),
   }),
+  volumes: z.array(z.string()).default(["mysql_data:/var/lib/mysql"]),
 });
 export type MysqlSchema = z.infer<typeof mysqlSchema>;
 export const defaultMysqlServiceDefinition: MysqlSchema = {
@@ -47,6 +52,7 @@ export const defaultMysqlServiceDefinition: MysqlSchema = {
     MYSQL_PASSWORD: "mysql",
     MYSQL_DB: "mysql",
   },
+  volumes: ["mysql_data:/var/lib/mysql"],
 };
 
 export const composeSchema = z.object({
@@ -54,19 +60,6 @@ export const composeSchema = z.object({
     postgres: postgresSchema.optional(),
     mysql: mysqlSchema.optional(),
   }),
+  volumes: z.record(z.null()),
 });
 export type ComposeFileSchema = z.infer<typeof composeSchema>;
-
-let f: ComposeFileSchema = {
-  services: {
-    postgres: {
-      image: "postgres:latest",
-      restart: "on-failure",
-      environment: {
-        POSTGRES_DB: "postgres",
-        POSTGRES_PASSWORD: "postgres",
-        POSTGRES_USER: "postgres",
-      },
-    },
-  },
-};

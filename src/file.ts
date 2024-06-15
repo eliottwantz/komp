@@ -1,6 +1,5 @@
 import { parse, stringify } from "yaml";
-import { composeSchema, type ComposeFileSchema } from "./schema";
-import { appendFile } from "node:fs/promises";
+import { type ComposeFileSchema } from "./schema";
 
 export type ComposeFileInfo = {
   path: string;

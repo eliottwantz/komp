@@ -10,7 +10,7 @@ import { sleep, type BunFile } from "bun";
 import { defineCommand, runMain } from "citty";
 import { consola } from "consola";
 import { box, colorize } from "consola/utils";
-import { allServices } from "./services";
+import { addService, allServices, type Service } from "./services";
 
 const cliName = "komp";
 const s = spinner();
@@ -36,7 +36,8 @@ export const main = defineCommand({
     }
 
     s.start("Applying...");
-    await sleep(2000);
+    await addService(res as Service[]);
+    await sleep(1);
     s.stop();
     outro("Done");
   },
