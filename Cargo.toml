@@ -15,3 +15,7 @@ console = "0.15.8"
 ctrlc = "3.4.4"
 serde = { version = "1.0.203", features = ["derive"] }
 serde_norway = "0.9.36"
+
+[profile.release]
+strip = true
+opt-level = "z"
