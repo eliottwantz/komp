@@ -36,7 +36,6 @@ pub fn write_compose_file(
             .volumes
             .extend(compose_file_definition.volumes);
         let contents = serde_norway::to_string(&existing_compose_file)?;
-        print!("{:#?}", contents);
         fs::write(&p, contents)?;
     } else {
         let contents = serde_norway::to_string(&compose_file_definition)?;
