@@ -1,14 +1,9 @@
 # komp
-To install dependencies:
+
+Generate local docker compose file with your selected services to get you up and running in seconds
+
+## Install
 
 ```bash
-bun install
+cargo install komp@latest
 ```
-
-To run:
-
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.1.12. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
