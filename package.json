@@ -14,7 +14,7 @@
     "url": "https://github.com/eliottwantz/komp.git"
   },
   "scripts": {
-    "build": "bun build --compile --minify --sourcemap ./index.ts --outfile komp"
+    "build": "bun build --compile --minify ./index.ts --outfile komp"
   },
   "devDependencies": {
     "@types/bun": "latest"
