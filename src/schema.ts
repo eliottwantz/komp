@@ -30,9 +30,8 @@ export const defaultPostgresServiceDefinition: PostgresSchema = {
 export type MysqlSchema = {
   image: "mysql:latest";
   environment: {
-    MYSQL_USER: string;
-    MYSQL_PASSWORD: string;
-    MYSQL_DB: string;
+    MYSQL_ROOT_PASSWORD: string;
+    MYSQL_DATABASE: string;
   };
   ports: ["3306:3306"];
   volumes: ["mysql_data:/var/lib/mysql"];
@@ -43,9 +42,8 @@ export const defaultMysqlServiceDefinition: MysqlSchema = {
   restart: "on-failure",
   ports: ["3306:3306"],
   environment: {
-    MYSQL_USER: "mysql",
-    MYSQL_PASSWORD: "mysql",
-    MYSQL_DB: "mysql",
+    MYSQL_ROOT_PASSWORD: "root",
+    MYSQL_DATABASE: "mydb",
   },
   volumes: ["mysql_data:/var/lib/mysql"],
 };
