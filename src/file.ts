@@ -41,10 +41,13 @@ export const writeComposeFile = async (
       await Bun.file(composeFileInfo.path).text()
     );
     const newComposeFile: ComposeFileSchema = {
-      ...existingComposeFile,
       services: {
         ...existingComposeFile.services,
         ...composeFileDefinition.services,
+      },
+      volumes: {
+        ...existingComposeFile.volumes,
+        ...composeFileDefinition.volumes,
       },
     };
     await Bun.write(composeFileInfo.path, stringify(newComposeFile));
