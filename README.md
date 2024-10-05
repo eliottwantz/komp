@@ -5,7 +5,11 @@ Generate local docker compose file with your selected services to get you up and
 ## Install
 
 ```bash
-bun run build
-mkdir -p ~/.local/bin
-mv komp ~/.local/bin
+npm i -g @develiott/komp
+```
+
+## Usage
+
+```bash
+komp
 ```
