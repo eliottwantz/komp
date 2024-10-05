@@ -3,11 +3,7 @@
   "main": "index.ts",
   "version": "0.0.1",
   "description": "Komp generates local docker compose file with your selected services to get you up and running in seconds",
-  "author": {
-    "name": "Eliott Wantz",
-    "email": "dev.eliottdev@gmail.com",
-    "url": "https://develiott.com"
-  },
+  "author": "Eliott Wantz <dev.eliottdev@gmail.com> (https://develiott.com)",
   "bin": {
     "komp": "index.ts"
   },
@@ -15,7 +11,6 @@
     "type": "git",
     "url": "git+https://github.com/eliottwantz/komp.git"
   },
-  "readme": "https://github.com/eliottwantz/komp#readme",
   "license": "ISC",
   "keywords": [
     "docker",
@@ -38,5 +33,9 @@
     "@clack/prompts": "^0.7.0",
     "citty": "^0.1.6",
     "yaml": "^2.4.5"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/eliottwantz/komp/issues"
+  },
+  "homepage": "https://github.com/eliottwantz/komp#readme"
 }
