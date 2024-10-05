@@ -1,11 +1,11 @@
 {
   "name": "@develiott/komp",
-  "main": "index.ts",
-  "version": "0.0.1",
+  "main": "bin/index.js",
+  "version": "0.0.2",
   "description": "Komp generates local docker compose file with your selected services to get you up and running in seconds",
   "author": "Eliott Wantz <dev.eliottdev@gmail.com> (https://develiott.com)",
   "bin": {
-    "komp": "index.ts"
+    "komp": "bin/index.js"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,9 @@
     "@clack/prompts": "^0.7.0",
     "citty": "^0.1.6",
     "yaml": "^2.4.5"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "bugs": {
     "url": "https://github.com/eliottwantz/komp/issues"
