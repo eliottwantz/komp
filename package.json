@@ -1,0 +1,30 @@
+{
+  "name": "komp",
+  "module": "index.ts",
+  "type": "module",
+  "description": "Komp generates local docker compose file with your selected services to get you up and running in seconds",
+  "author": {
+    "name": "Eliott Wantz",
+    "email": "dev.eliottdev@gmail.com",
+    "url": "https://develiott.com"
+  },
+  "bin": "komp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eliottwantz/komp.git"
+  },
+  "scripts": {
+    "build": "bun build --compile --minify ./index.ts --outfile komp"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.7.0",
+    "citty": "^0.1.6",
+    "yaml": "^2.4.5"
+  }
+}
