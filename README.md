@@ -5,5 +5,7 @@ Generate local docker compose file with your selected services to get you up and
 ## Install
 
 ```bash
-cargo install komp
+bun run build
+mkdir -p ~/.local/bin
+mv komp ~/.local/bin
 ```
