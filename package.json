@@ -8,8 +8,13 @@
     "email": "dev.eliottdev@gmail.com",
     "url": "https://develiott.com"
   },
-  "bin": "index.ts",
-  "repository": "https://github.com/eliottwantz/komp",
+  "bin": {
+    "komp": "index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eliottwantz/komp.git"
+  },
   "readme": "https://github.com/eliottwantz/komp#readme",
   "license": "ISC",
   "keywords": [
