@@ -1,10 +1,10 @@
-import { writeComposeFile } from "./file.js";
+import { writeComposeFile } from "./file";
 import {
   defaultMailpitServiceDefinition,
   defaultMysqlServiceDefinition,
   defaultPostgresServiceDefinition,
   type ComposeFileSchema,
-} from "./schema.js";
+} from "./schema";
 
 export const allServices = ["Postgres", "MySQL", "Mailpit"] as const;
 
