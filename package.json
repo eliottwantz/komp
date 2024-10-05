@@ -1,11 +1,11 @@
 {
   "name": "@develiott/komp",
-  "main": "bin/index.js",
+  "main": "dist/index.js",
   "version": "0.0.3",
   "description": "Komp generates local docker compose file with your selected services to get you up and running in seconds",
   "author": "Eliott Wantz <dev.eliottdev@gmail.com> (https://develiott.com)",
   "bin": {
-    "komp": "bin/index.js"
+    "komp": "dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,10 +19,8 @@
     "local-development"
   ],
   "scripts": {
-    "build": "bun build --minify ./index.ts --outdir dist",
-    "tsc": "tsc",
-    "prepublish": "tsc",
-    "compile": "bun build --compile --minify ./index.ts --outfile komp"
+    "build": "tsc",
+    "prepublish": "tsc"
   },
   "devDependencies": {
     "@types/node": "latest"
