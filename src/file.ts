@@ -1,5 +1,7 @@
+import { existsSync } from "node:fs";
+import { readFile, writeFile } from "node:fs/promises";
 import { parse, stringify } from "yaml";
-import { type ComposeFileSchema } from "./schema";
+import { type ComposeFileSchema } from "./schema.js";
 
 export type ComposeFileInfo = {
   path: string;
@@ -17,7 +19,7 @@ export const getComposeFileInfo = async (): Promise<ComposeFileInfo> => {
 
   let composeFilePath: string | null = null;
   for (const path of composePaths) {
-    if (await Bun.file(path).exists()) {
+    if (existsSync(path)) {
       composeFilePath = path;
       break;
     }
@@ -35,10 +37,10 @@ export const writeComposeFile = async (
   const composeFileInfo = await getComposeFileInfo();
 
   if (!composeFileInfo.exists) {
-    await Bun.write(composeFileInfo.path, stringify(composeFileDefinition));
+    await writeFile(composeFileInfo.path, stringify(composeFileDefinition));
   } else {
     const existingComposeFile = await parse(
-      await Bun.file(composeFileInfo.path).text()
+      (await readFile(composeFileInfo.path)).toString()
     );
     const newComposeFile: ComposeFileSchema = {
       services: {
@@ -50,6 +52,6 @@ export const writeComposeFile = async (
         ...composeFileDefinition.volumes,
       },
     };
-    await Bun.write(composeFileInfo.path, stringify(newComposeFile));
+    await writeFile(composeFileInfo.path, stringify(newComposeFile));
   }
 };

@@ -1,6 +1,6 @@
 import { cancel, intro, isCancel, multiselect, outro } from "@clack/prompts";
 import { defineCommand } from "citty";
-import { addService, allServices, type Service } from "./services";
+import { addService, allServices, type Service } from "./services.js";
 
 const cliName = "komp";
 
