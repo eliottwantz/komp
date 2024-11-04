@@ -1,10 +1,10 @@
-import { writeComposeFile } from "./file";
+import { writeComposeFile } from "./file.js";
 import {
   defaultMailpitServiceDefinition,
   defaultMysqlServiceDefinition,
   defaultPostgresServiceDefinition,
   type ComposeFileSchema,
-} from "./schema";
+} from "./schema.js";
 
 export const allServices = ["Postgres", "MySQL", "Mailpit"] as const;
 
@@ -21,11 +21,11 @@ export const addService = async (services: Service[]) => {
       case "Postgres":
         composeFileDefinition.services.postgres =
           defaultPostgresServiceDefinition;
-        composeFileDefinition.volumes["postgres_data"] = null;
+        composeFileDefinition.volumes.postgres_data = null;
         break;
       case "MySQL":
         composeFileDefinition.services.mysql = defaultMysqlServiceDefinition;
-        composeFileDefinition.volumes["mysql_data"] = null;
+        composeFileDefinition.volumes.mysql_data = null;
         break;
       case "Mailpit":
         composeFileDefinition.services.mailpit =

@@ -1,7 +1,7 @@
 import { existsSync } from "node:fs";
 import { readFile, writeFile } from "node:fs/promises";
-import { parse, stringify } from "yaml";
-import { type ComposeFileSchema } from "./schema";
+import { parse, stringify } from "@std/yaml";
+import type { ComposeFileSchema } from "./schema.js";
 
 export type ComposeFileInfo = {
   path: string;
@@ -39,9 +39,9 @@ export const writeComposeFile = async (
   if (!composeFileInfo.exists) {
     await writeFile(composeFileInfo.path, stringify(composeFileDefinition));
   } else {
-    const existingComposeFile = await parse(
+    const existingComposeFile = (await parse(
       (await readFile(composeFileInfo.path)).toString()
-    );
+    )) as ComposeFileSchema;
     const newComposeFile: ComposeFileSchema = {
       services: {
         ...existingComposeFile.services,

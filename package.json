@@ -1,7 +1,8 @@
 {
   "name": "@develiott/komp",
   "main": "dist/index.js",
-  "version": "0.0.3",
+  "version": "0.0.4",
+  "type": "module",
   "description": "Komp generates local docker compose file with your selected services to get you up and running in seconds",
   "author": "Eliott Wantz <dev.eliottdev@gmail.com> (https://develiott.com)",
   "bin": {
@@ -30,6 +31,7 @@
   },
   "dependencies": {
     "@clack/prompts": "^0.7.0",
+    "@std/yaml": "npm:@jsr/std__yaml@^1.0.5",
     "citty": "^0.1.6",
     "yaml": "^2.4.5"
   },
