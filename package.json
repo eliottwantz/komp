@@ -32,8 +32,7 @@
   "dependencies": {
     "@clack/prompts": "^0.7.0",
     "@std/yaml": "npm:@jsr/std__yaml@^1.0.5",
-    "citty": "^0.1.6",
-    "yaml": "^2.4.5"
+    "citty": "^0.1.6"
   },
   "publishConfig": {
     "access": "public"
