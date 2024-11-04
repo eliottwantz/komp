@@ -1,3 +1,4 @@
+import packageJson from "../package.json";
 import { cancel, intro, isCancel, multiselect, outro } from "@clack/prompts";
 import { defineCommand } from "citty";
 import { addService, allServices, type Service } from "./services.js";
@@ -7,7 +8,7 @@ const cliName = "komp";
 export const main = defineCommand({
   meta: {
     name: cliName,
-    version: "0.0.2",
+    version: packageJson.version,
     description: "Add services to your Docker Compose file",
   },
   async run() {
