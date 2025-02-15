@@ -1,6 +1,6 @@
-import packageJson from "../package.json";
 import { cancel, intro, isCancel, multiselect, outro } from "@clack/prompts";
 import { defineCommand } from "citty";
+import packageJson from "../package.json" with { type: "json" };
 import { addService, allServices, type Service } from "./services.js";
 
 const cliName = "komp";
