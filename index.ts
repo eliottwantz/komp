@@ -1,4 +1,4 @@
-#! /usr/bin/env node
+#! /usr/bin/env bun
 
 import { runMain } from "citty";
 import { main } from "./src/command";
