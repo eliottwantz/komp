@@ -7,10 +7,6 @@
 	"bin": {
 		"komp": "index.ts"
 	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/eliottwantz/komp.git"
-	},
 	"license": "MIT",
 	"keywords": [
 		"docker",
@@ -32,12 +28,5 @@
 		"@clack/prompts": "^0.11.0",
 		"@std/yaml": "npm:@jsr/std__yaml@^1",
 		"citty": "^0.2.0"
-	},
-	"publishConfig": {
-		"access": "public"
-	},
-	"bugs": {
-		"url": "https://github.com/eliottwantz/komp/issues"
-	},
-	"homepage": "https://github.com/eliottwantz/komp#readme"
+	}
 }
