@@ -1,44 +1,43 @@
 {
-  "name": "@develiott/komp",
-  "main": "dist/index.js",
-  "version": "0.0.6",
-  "type": "module",
-  "description": "Komp generates local docker compose file with your selected services to get you up and running in seconds",
-  "author": "Eliott Wantz <dev.eliottdev@gmail.com> (https://develiott.com)",
-  "bin": {
-    "komp": "dist/index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/eliottwantz/komp.git"
-  },
-  "license": "ISC",
-  "keywords": [
-    "docker",
-    "docker-compose",
-    "cli",
-    "local-development"
-  ],
-  "scripts": {
-    "build": "tsc",
-    "prepublish": "tsc"
-  },
-  "devDependencies": {
-    "@types/node": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.6.2"
-  },
-  "dependencies": {
-    "@clack/prompts": "^0.7.0",
-    "citty": "^0.1.6",
-    "yaml": "^2.4.5"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "bugs": {
-    "url": "https://github.com/eliottwantz/komp/issues"
-  },
-  "homepage": "https://github.com/eliottwantz/komp#readme"
+	"name": "@develiott/komp",
+	"main": "index.ts",
+	"type": "module",
+	"description": "Komp generates local docker compose file with your selected services to get you up and running in seconds",
+	"author": "Eliott Wantz <contact@develiott.com> (https://develiott.com)",
+	"bin": {
+		"komp": "index.ts"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/eliottwantz/komp.git"
+	},
+	"license": "MIT",
+	"keywords": [
+		"docker",
+		"docker-compose",
+		"cli",
+		"local-development"
+	],
+	"scripts": {
+		"publish": "bunx jsr publish"
+	},
+	"devDependencies": {
+		"@types/bun": "latest",
+		"tsdown": "^0.20.1"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"dependencies": {
+		"@clack/prompts": "^0.11.0",
+		"@std/yaml": "npm:@jsr/std__yaml@^1",
+		"citty": "^0.2.0"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"bugs": {
+		"url": "https://github.com/eliottwantz/komp/issues"
+	},
+	"homepage": "https://github.com/eliottwantz/komp#readme"
 }
