@@ -1,6 +1,6 @@
 import { existsSync } from "node:fs";
 import { readFile, writeFile } from "node:fs/promises";
-import { parse, stringify } from "@std/yaml";
+import { parse, stringify } from "yaml";
 import type { ComposeFileSchema } from "./schema";
 
 export type ComposeFileInfo = {
